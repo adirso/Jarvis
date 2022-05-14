@@ -1,7 +1,9 @@
 from sound_helpers import speak, get_audio
 from commands_handler import handle_command
+from dotenv import dotenv_values
 
 run = True
+config = dotenv_values(".env")
 
 speak("Starting process now")
 
