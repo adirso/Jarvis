@@ -1,16 +1,15 @@
 from gtts import gTTS
 import hashlib
 from datetime import datetime
-import playsound
+import pyttsx3
 import os
 import speech_recognition as sr
 
+
 def speak(text):
-    tts = gTTS(text=text, lang="en")
-    filename =  hashlib.md5(datetime.now().strftime("%m/%d/%Y, %H:%M:%S").encode('utf-8')).hexdigest() + ".mp3"
-    tts.save(filename)
-    playsound.playsound(filename)
-    os.remove(filename)
+    engine = pyttsx3.init()
+    engine.say(text)
+    engine.runAndWait()
 
 
 def get_audio():
